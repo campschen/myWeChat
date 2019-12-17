@@ -162,9 +162,23 @@ public class MomentsActivity extends BaseActivity<MomentsPresenter> implements M
 
     @Override
     public void updateTweetList(List<TweetNormalBean> tweetList) {
+        mRecyclerView.onRefreshComplete();
+        List items = momentsAdapter.getListItems();
+        if(items != null && items.size() > 1){
+            for (int i = items.size() - 1; i > 0 ; i--) {
+                items.remove(i);
+            }
+        }
+        momentsAdapter.notifyDataSetChanged();
         momentsAdapter.appendData(tweetList);
         currentPage ++;
+    }
+
+    @Override
+    public void appendTweetList(List<TweetNormalBean> tweetList) {
         mRecyclerView.onRefreshComplete();
+        momentsAdapter.appendData(tweetList);
+        currentPage ++;
     }
 
     @Override

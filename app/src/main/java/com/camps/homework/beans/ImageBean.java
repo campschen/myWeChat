@@ -9,7 +9,6 @@ public class ImageBean {
     private String url;
 
     public String getUrl() {
-        url = Constants.IMAGE_TWEET_URL[(int)(Math.random()*5)];
         return url;
     }
 

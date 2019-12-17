@@ -17,6 +17,7 @@ public class MomentsContract {
 
         void updateUserView(UserBean currentUser);
         void updateTweetList(List<TweetNormalBean> tweetList);
+        void appendTweetList(List<TweetNormalBean> tweetList);
     }
 
 

@@ -8,6 +8,6 @@
 
 [项目结构简介]：项目分为两个模块: app中是朋友圈业务代码，myframe是一些工具和基类
 
-[测试DEMO]：/apk/app-debug.apk
+[测试DEMO]：/apk/app-debug.apk 图片url是homework接口返回的url，/apk/app-debug2.apk 是本地写死的url方便测试用
 
 [联系方式]：QQ:271096189 邮箱:camps@sina.com

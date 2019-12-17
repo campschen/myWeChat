@@ -118,7 +118,6 @@ public class TweetWordImgViewHolder extends TGRecyclerViewHolder<TweetNormalBean
         //推文用户头像
         MomentsAdapter adapter = (MomentsAdapter) getAdapter();
         if(itemData.getUserBean() != null) {
-            itemData.getUserBean().setUserAvatarUrl(Constants.IMAGE_USER_URL[(int)(Math.random()*5)]);
             Glide.with(getContext())
                     .load(itemData.getUserBean().getUserAvatarUrl())
                     .apply(adapter.getRequestOptions().override(DisplayUtils.dp2px(getContext(), 44f), DisplayUtils.dp2px(getContext(), 44f)))

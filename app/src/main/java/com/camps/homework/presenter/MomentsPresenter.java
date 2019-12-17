@@ -4,9 +4,11 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 
 import com.camps.frame.utils.log.Logger;
+import com.camps.homework.Constants;
 import com.camps.homework.MomentsActivity;
 import com.camps.frame.base.BasePresenter;
 
+import com.camps.homework.beans.ImageBean;
 import com.camps.homework.beans.TweetNormalBean;
 import com.camps.homework.beans.TweetWordBean;
 import com.camps.homework.beans.UserBean;
@@ -92,6 +94,7 @@ public class MomentsPresenter extends BasePresenter<MomentsActivity> implements 
     }
 
 
+    //网络请求观察者
     class NetworkObserver extends Observer<List<TweetNormalBean>> {
         @Override
         protected void OnDisposable(Disposable d) {
@@ -116,6 +119,7 @@ public class MomentsPresenter extends BasePresenter<MomentsActivity> implements 
 
     }
 
+    //模拟数据观察者
     class LocalObserver extends Observer<List<TweetNormalBean>> {
         @Override
         protected void OnDisposable(Disposable d) {
@@ -124,7 +128,7 @@ public class MomentsPresenter extends BasePresenter<MomentsActivity> implements 
 
         @Override
         protected void OnSuccess(List<TweetNormalBean> beanList) {
-            getIView().updateTweetList(beanList);
+            getIView().appendTweetList(beanList);
         }
 
         @Override
@@ -138,6 +142,11 @@ public class MomentsPresenter extends BasePresenter<MomentsActivity> implements 
 
     }
 
+    /**
+     * 整理原始数据
+     * @param originalList 原始网络请求数据
+     * @return
+     */
     public List<TweetNormalBean> makeTweetList(List<TweetNormalBean> originalList){
         if(originalList == null || originalList.size() == 0){
             return originalList;
@@ -153,6 +162,18 @@ public class MomentsPresenter extends BasePresenter<MomentsActivity> implements 
 
             TweetNormalBean tweetBean = originalList.get(i);
 
+            //固定图片url
+            if(Constants.LOCAL_IMG_URL) {
+                if (tweetBean.getUserBean() != null) {
+                    tweetBean.getUserBean().setUserAvatarUrl(Constants.IMAGE_USER_URL[(int) (Math.random() * 5)]);
+                }
+
+                if (tweetBean.getImageUrls() != null && tweetBean.getImageUrls().size() > 0) {
+                    for (ImageBean imageBean : tweetBean.getImageUrls()) {
+                        imageBean.setUrl(Constants.IMAGE_TWEET_URL[(int) (Math.random() * 5)]);
+                    }
+                }
+            }
 
             tweetBean.build(getIView());
 

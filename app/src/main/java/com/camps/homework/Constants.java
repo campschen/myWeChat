@@ -1,11 +1,11 @@
 package com.camps.homework;
 
 /**
- * @author KCrason
- * @date 2018/4/27
+ * 通用常量
  */
 public class Constants {
 
+    public static final boolean LOCAL_IMG_URL = false; //是否使用固定图片url
 
     public static String[] IMAGE_TWEET_URL = new String[]{
             "http://img1.imgtn.bdimg.com/it/u=4238142487,3274484296&fm=26&gp=0.jpg",
