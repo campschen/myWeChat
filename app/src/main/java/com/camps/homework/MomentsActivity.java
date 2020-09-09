@@ -97,6 +97,8 @@ public class MomentsActivity extends BaseActivity<MomentsPresenter> implements M
         mTitleTV.setVisibility(View.GONE);
         //测试代码
         mTitleTV.setVisibility(View.GONE);
+        //测试代码2
+        mTitleTV.setVisibility(View.GONE);
     }
 
     @Override
