@@ -95,6 +95,8 @@ public class MomentsActivity extends BaseActivity<MomentsPresenter> implements M
 
         mRecyclerView.setItemViewCacheSize(20);
         mTitleTV.setVisibility(View.GONE);
+        //测试代码
+        mTitleTV.setVisibility(View.GONE);
     }
 
     @Override
@@ -144,6 +146,7 @@ public class MomentsActivity extends BaseActivity<MomentsPresenter> implements M
             mPresenter.getCurrentUser();
             mRecyclerView.setMode(IPullToRefreshView.Mode.BOTH);
         }
+
         mPresenter.getTweetList(currentPage, pageSize);
     }
 
