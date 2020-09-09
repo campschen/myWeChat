@@ -94,7 +94,8 @@ public class MomentsActivity extends BaseActivity<MomentsPresenter> implements M
         mImageWatcher.setLoader(this);
 
         mRecyclerView.setItemViewCacheSize(20);
-        mTitleTV.setVisibility(View.GONE);
+        // 测试代码A
+        mTitleTV.setVisibility(View.VISIBLE);
         //测试代码
         mTitleTV.setVisibility(View.GONE);
         //测试代码2
